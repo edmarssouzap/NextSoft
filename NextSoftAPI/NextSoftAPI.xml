@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NextSoftAPI</name>
+    </assembly>
+    <members>
+        <member name="T:NextSoftAPI.Controllers.CondominioController">
+            <summary>
+            Endpoint Condominio
+            </summary>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.CondominioController.#ctor(NextSoftAPI.Data.NextSoftAPIDataContext)">
+            <summary>
+            Construtor de Condominio
+            </summary>
+            <param name="db">DataContext</param>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.CondominioController.ObterListaAsync">
+            <summary>
+            Lista todos os condominios
+            </summary>
+            <returns>Lista de condominio</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.CondominioController.ObterIdAsync(System.Int32)">
+            <summary>
+            Obtem dados de um especifico condominio
+            </summary>
+            <param name="id">Id do condominio</param>
+            <returns>Retorna um JSON com os dados de Condominio</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.CondominioController.CriarAsync(NextSoftAPI.Models.Condominio)">
+            <summary>
+            Adiciona informações no banco de dados
+            </summary>
+            <param name="condominio">Obtem dados coletados de um condominio</param>
+            <returns>Status de operação sucedida e retorna os dados enviados</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.CondominioController.AtualizarAsync(System.Int32,NextSoftAPI.Models.Condominio)">
+            <summary>
+            Atualiza dados de um condominio
+            </summary>
+            <param name="id">Id do condominio</param>
+            <param name="condominio">Dados para atualizar de condominio</param>
+            <returns>Retorna status de operacao sucedida</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.CondominioController.DeletarAsync(System.Int32)">
+            <summary>
+            Deleta um condominio do banco de dados
+            </summary>
+            <param name="id">Id de condominio</param>
+            <returns>Retorna status de operacao sucedida</returns>
+        </member>
+        <member name="T:NextSoftAPI.Controllers.FamiliaController">
+            <summary>
+            Endpoint Familia
+            </summary>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.FamiliaController.#ctor(NextSoftAPI.Data.NextSoftAPIDataContext)">
+            <summary>
+            Construtor de Familia
+            </summary>
+            <param name="db">DataContext</param>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.FamiliaController.ObterListaAsync">
+            <summary>
+            Lista todos as familias
+            </summary>
+            <returns>Lista de familias</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.FamiliaController.ObterIdAsync(System.Int32)">
+            <summary>
+            Obtem dados de uma especifica familia
+            </summary>
+            <param name="id">Id da familia</param>
+            <returns>Retorna um JSON com os dados de familia</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.FamiliaController.CriarAsync(NextSoftAPI.Models.Familia)">
+            <summary>
+            Adiciona informações no banco de dados
+            </summary>
+            <param name="familia">Obtem dados coletados de uma familia</param>
+            <returns>Status de operação sucedida e retorna os dados enviados</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.FamiliaController.AtualizarAsync(System.Int32,NextSoftAPI.Models.Familia)">
+            <summary>
+            Atualiza dados de uma familia
+            </summary>
+            <param name="id">Id da familia</param>
+            <param name="familia">Dados para atualizar de familia</param>
+            <returns>Retorna status de operacao sucedida</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.FamiliaController.DeletarAsync(System.Int32)">
+            <summary>
+            Deleta uma familia do banco de dados
+            </summary>
+            <param name="id">Id da familia</param>
+            <returns>Retorna status de operacao sucedida</returns>
+        </member>
+        <member name="T:NextSoftAPI.Controllers.MoradorController">
+            <summary>
+            Endpoint Morador
+            </summary>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.MoradorController.#ctor(NextSoftAPI.Data.NextSoftAPIDataContext)">
+            <summary>
+            Construtor de Morador
+            </summary>
+            <param name="db">DataContext</param>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.MoradorController.ObterListaAsync">
+            <summary>
+            Lista todos os moradores
+            </summary>
+            <returns>Lista de morador</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.MoradorController.ObterIdAsync(System.Int32)">
+            <summary>
+            Obtem dados de um especifico morador
+            </summary>
+            <param name="id">Id do morador</param>
+            <returns>Retorna um JSON com os dados de Morador</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.MoradorController.CriarAsync(NextSoftAPI.Models.Morador)">
+            <summary>
+            Adiciona informações no banco de dados
+            </summary>
+            <param name="morador">Obtem dados coletados de um morador</param>
+            <returns>Status de operação sucedida e retorna os dados enviados</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.MoradorController.AtualizarAsync(System.Int32,NextSoftAPI.Models.Morador)">
+            <summary>
+            Atualiza dados de um morador
+            </summary>
+            <param name="id">Id do morador</param>
+            <param name="morador">Dados para atualizar de morador</param>
+            <returns>Retorna status de operacao sucedida</returns>
+        </member>
+        <member name="M:NextSoftAPI.Controllers.MoradorController.DeletarAsync(System.Int32)">
+            <summary>
+            Deleta um morador do banco de dados
+            </summary>
+            <param name="id">Id de morador</param>
+            <returns>Retorna status de operacao sucedida</returns>
+        </member>
+    </members>
+</doc>
