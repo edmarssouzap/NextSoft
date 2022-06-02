@@ -1,4 +1,4 @@
-# ![Icon](./nextsoft.png?raw=true "NextSoft") NextSoft
+# ![Icon](./nextsoft.png?raw=true "NextSoft")
 
 ![Plarform Windows](https://img.shields.io/badge/Windows-blue?logo=windows)
 ![C# 5.0](https://img.shields.io/badge/C%23-5.0-blue?logo=c-sharp)
@@ -13,6 +13,3 @@
   - **[ASP.NET Core Web API]**
 
 - IDE: **[Visual Studio](https://github.com/microsoft) 2019**
-
-## :page_facing_up: License
-Licensed under [MIT License](./LICENSE).
