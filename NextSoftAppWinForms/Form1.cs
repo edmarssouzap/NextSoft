@@ -131,15 +131,13 @@ namespace NextSoftAppWinForms
 
         private int Validador (string txtURL)
         {
-            int idURL;
-
             var divisaoURL = txtURL.Split('/');
-            bool resultadoURL = Int32.TryParse(divisaoURL[divisaoURL.Length - 1], out idURL);
+            bool resultadoURL = Int32.TryParse(divisaoURL[divisaoURL.Length - 1], out int idURL);
 
-            if (!resultadoURL)
+            if (idURL == 0 || !resultadoURL)
             {
-                MessageBox.Show("Coloque o número no campo id.");
-                return 5000;
+                MessageBox.Show("Coloque um número no campo id e que seja maior que 0.", "Atenção");
+                return 0;
             }
 
             return idURL;
@@ -159,7 +157,7 @@ namespace NextSoftAppWinForms
         {
             int resultado = Validador(txtID.Text);
 
-            if (resultado != 5000)
+            if (resultado != 0)
                 GetIdAsync (resultado);
         }
 
@@ -173,7 +171,7 @@ namespace NextSoftAppWinForms
         {
             int resultado = Validador(txtID.Text);
 
-            if (resultado != 5000)
+            if (resultado != 0)
                 DeleteAsync (resultado);
         }
 
