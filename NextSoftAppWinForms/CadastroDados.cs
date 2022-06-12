@@ -9,7 +9,7 @@ namespace NextSoftAppWinForms
         /// Variavel para verificar qual sera o tipo de requisicao: POST ou PUT
         /// </summary>
         public string TipoRequisicao { get; set; }
-        
+
         /// <summary>
         /// Mapea algumas propriedades do form cadastro para envio da requisicao
         /// </summary>
@@ -24,18 +24,6 @@ namespace NextSoftAppWinForms
         public CadastroDados()
         {
             InitializeComponent();
-        }
-
-        private void btnSubmit_Click(object sender, EventArgs e)
-        {
-            if (txtNome.Text == string.Empty ||
-                txtBairro.Text == string.Empty)
-            {
-                MessageBox.Show("Por favor, preencha os campos para enviar os dados.", "Atenção!");
-                return;
-            }
-
-            Close();
         }
 
         /// <summary>
@@ -57,6 +45,18 @@ namespace NextSoftAppWinForms
                     txtID.Visible = true;
                     break;
             }
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text == string.Empty ||
+                txtBairro.Text == string.Empty)
+            {
+                MessageBox.Show("Por favor, preencha os campos para enviar os dados.", "Atenção!");
+                return;
+            }
+
+            Close();
         }
     }
 }

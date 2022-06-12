@@ -1,9 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using NextSoftAppWinForms.Model;
 
 namespace NextSoftAppWinForms
@@ -11,10 +11,13 @@ namespace NextSoftAppWinForms
     public partial class Form1 : Form
     {
         string textoID = "Digite o ID aqui";
+        readonly IHttpClientFactory _httpClientFactory;
 
-        public Form1 ()
+        public Form1(IHttpClientFactory httpClientFactory)
         {
             InitializeComponent();
+
+            _httpClientFactory = httpClientFactory;
 
             cbListagem.Items.Add("Condominio");
             cbListagem.Items.Add("Familia");
@@ -22,42 +25,18 @@ namespace NextSoftAppWinForms
             cbListagem.Text = "Condominio";
         }
 
-        private async void GetAllAsync ()
+        private async void GetAllAsync()
         {
+            var cliente = _httpClientFactory.CreateClient();
+
             string urlAPI = $"{txtURL.Text}/{cbListagem.SelectedItem}";
 
-            using (var cliente = new HttpClient())
+            using (var response = await cliente.GetAsync(urlAPI))
             {
-                using (var response = await cliente.GetAsync(urlAPI))
-                {
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var jsonString = await response.Content.ReadAsStringAsync();
-                        dataGridView.DataSource = JsonConvert.DeserializeObject<Generica[]>(jsonString).ToList();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Falhou, Status HTTP: " + response.StatusCode);
-                    }
-                }
-            }
-        }
-
-        private async void GetIdAsync (int id)
-        {
-            string urlAPI= $"{txtURL.Text}/{cbListagem.SelectedItem}/{id}".ToString();
-
-            using (var cliente = new HttpClient())
-            {
-                BindingSource dados = new BindingSource();
-
-                HttpResponseMessage response = await cliente.GetAsync(urlAPI);
-
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
-                    dados.DataSource = JsonConvert.DeserializeObject<Generica>(jsonString);
-                    dataGridView.DataSource = dados;
+                    dataGridView.DataSource = JsonConvert.DeserializeObject<Generica[]>(jsonString).ToList();
                 }
                 else
                 {
@@ -66,70 +45,90 @@ namespace NextSoftAppWinForms
             }
         }
 
-        private async void PostAsync (Generica dados)
+        private async void GetIdAsync(int id)
         {
+            var cliente = _httpClientFactory.CreateClient();
+
+            string urlAPI = $"{txtURL.Text}/{cbListagem.SelectedItem}/{id}".ToString();
+
+            BindingSource dados = new BindingSource();
+
+            HttpResponseMessage response = await cliente.GetAsync(urlAPI);
+
+            if (response.IsSuccessStatusCode)
+            {
+             
+                var jsonString = await response.Content.ReadAsStringAsync();
+                dados.DataSource = JsonConvert.DeserializeObject<Generica>(jsonString);
+                dataGridView.DataSource = dados;
+            }
+            else
+            {
+                MessageBox.Show("Falhou, Status HTTP: " + response.StatusCode);
+            }
+        }
+
+        private async void PostAsync(Generica dados)
+        {
+            var cliente = _httpClientFactory.CreateClient();
+
             string urlAPI = $"{txtURL.Text}/{cbListagem.SelectedItem}";
 
-            using (var cliente = new HttpClient())
-            {
-                var serializacao = JsonConvert.SerializeObject(dados);
-                var conteudo = new StringContent(serializacao, Encoding.UTF8, "application/json");
-                var result = await cliente.PostAsync(urlAPI, conteudo);
-            }
-
+            var serializacao = JsonConvert.SerializeObject(dados);
+            var conteudo = new StringContent(serializacao, Encoding.UTF8, "application/json");
+            await cliente.PostAsync(urlAPI, conteudo);
+           
             GetAllAsync();
         }
 
         private async void PutAsync(Generica dados)
         {
+            var cliente = _httpClientFactory.CreateClient();
+
             string urlAPI = $"{txtURL.Text}/{cbListagem.SelectedItem}/{dados.Id}".ToString();
 
             if (dados.Id == 0)
             {
-                MessageBox.Show("Escolha um id maior que 0 para alteração.","Atenção!");
+                MessageBox.Show("Escolha um id maior que 0 para alteração.", "Atenção!");
                 return;
             }
 
-            using (var cliente = new HttpClient())
-            {
-                var conteudo = JsonConvert.SerializeObject(dados);
-                var response = await cliente.PutAsync(urlAPI, new StringContent(conteudo, Encoding.UTF8, "application/json"));
+            var conteudo = JsonConvert.SerializeObject(dados);
+            var response = await cliente.PutAsync(urlAPI, new StringContent(conteudo, Encoding.UTF8, "application/json"));
 
-                if (response.IsSuccessStatusCode)
-                    MessageBox.Show("Atualização concluída.");
-                else
-                    MessageBox.Show($"Falhou, Status HTTP: {response.StatusCode}", "Atenção!");
-            }
+            if (response.IsSuccessStatusCode)
+                MessageBox.Show("Atualização concluída.");
+            else
+                MessageBox.Show($"Falhou, Status HTTP: {response.StatusCode}", "Atenção!");
 
             GetAllAsync();
         }
 
-        private async void DeleteAsync (int id)
+        private async void DeleteAsync(int id)
         {
+            var cliente = _httpClientFactory.CreateClient();
+
             string urlAPI = $"{txtURL.Text}/{cbListagem.SelectedItem}/{id}".ToString();
 
-            using (var cliente = new HttpClient())
+            cliente.BaseAddress = new Uri(urlAPI);
+
+            var confirmarExclusao = MessageBox.Show($"Tem certeza que deseja apagar o Id {id} do end point {cbListagem.SelectedItem}?", "Deleção de dados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (confirmarExclusao == DialogResult.Yes)
             {
-                cliente.BaseAddress = new Uri(urlAPI);
+                HttpResponseMessage response = await cliente.DeleteAsync(urlAPI);
 
-                var confirmarExclusao = MessageBox.Show($"Tem certeza que deseja apagar o Id {id} do end point {cbListagem.SelectedItem}?", "Deleção de dados", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                
-                if (confirmarExclusao == DialogResult.Yes)
+                if (response.IsSuccessStatusCode)
                 {
-                    HttpResponseMessage response = await cliente.DeleteAsync(urlAPI);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        MessageBox.Show($"Id {id} excluído com sucesso.");
-                        GetAllAsync();
-                    }
-                    else
-                        MessageBox.Show($"Falhou, Status Code: " + response.StatusCode);
+                    MessageBox.Show($"Id {id} excluído com sucesso.");
+                    GetAllAsync();
                 }
+                else
+                    MessageBox.Show($"Falhou, Status Code: " + response.StatusCode);
             }
         }
 
-        private int Validador (string txtURL)
+        private int Validador(string txtURL)
         {
             var divisaoURL = txtURL.Split('/');
             bool resultadoURL = Int32.TryParse(divisaoURL[divisaoURL.Length - 1], out int idURL);
@@ -143,11 +142,6 @@ namespace NextSoftAppWinForms
             return idURL;
         }
 
-        private void textBox1_MouseClick(object sender, MouseEventArgs e)
-        {
-            txtID.Text = string.Empty;
-        }
-
         private void btnGET_Click(object sender, EventArgs e)
         {
             GetAllAsync();
@@ -158,7 +152,12 @@ namespace NextSoftAppWinForms
             int resultado = Validador(txtID.Text);
 
             if (resultado != 0)
-                GetIdAsync (resultado);
+                GetIdAsync(resultado);
+        }
+
+        private void txtID_Click(object sender, EventArgs e)
+        {
+            txtID.Text = string.Empty;
         }
 
         private void txtID_Leave(object sender, EventArgs e)
@@ -172,13 +171,12 @@ namespace NextSoftAppWinForms
             int resultado = Validador(txtID.Text);
 
             if (resultado != 0)
-                DeleteAsync (resultado);
+                DeleteAsync(resultado);
         }
 
         private void btnPost_Click(object sender, EventArgs e)
-        { 
-            CadastroDados cadastro = new CadastroDados();
-            cadastro.TipoRequisicao = "Post";
+        {
+            CadastroDados cadastro = new CadastroDados() { TipoRequisicao = "Post" };
             cadastro.ShowDialog();
 
             Generica dados = new Generica()
@@ -197,8 +195,7 @@ namespace NextSoftAppWinForms
 
         private void btnPutId_Click(object sender, EventArgs e)
         {
-            CadastroDados alteracao = new CadastroDados();
-            alteracao.TipoRequisicao = "Put";
+            CadastroDados alteracao = new CadastroDados() { TipoRequisicao = "Put" };
             alteracao.ShowDialog();
 
             Generica dados = new Generica()
@@ -218,12 +215,13 @@ namespace NextSoftAppWinForms
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Deseja realmente encerrar a aplicação?",
-                "Fechar",
-                 MessageBoxButtons.YesNo,
-                 MessageBoxIcon.Information) == DialogResult.No)
+               "Fechar",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Information) == DialogResult.No)
             {
                 e.Cancel = true;
-            } 
+            }
         }
+
     }
 }

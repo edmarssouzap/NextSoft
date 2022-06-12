@@ -29,171 +29,170 @@ namespace NextSoftAppWinForms
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroDados));
-            this.txtNome = new System.Windows.Forms.TextBox();
-            this.lbID = new System.Windows.Forms.Label();
-            this.lbNome = new System.Windows.Forms.Label();
-            this.lbBairro = new System.Windows.Forms.Label();
-            this.txtBairro = new System.Windows.Forms.TextBox();
-            this.lbApto = new System.Windows.Forms.Label();
-            this.lbIdade = new System.Windows.Forms.Label();
-            this.btnSubmit = new System.Windows.Forms.Button();
-            this.lbTitulo = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFamilia = new System.Windows.Forms.NumericUpDown();
-            this.txtCondominio = new System.Windows.Forms.NumericUpDown();
-            this.txtApto = new System.Windows.Forms.NumericUpDown();
-            this.txtIdade = new System.Windows.Forms.NumericUpDown();
             this.txtID = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFamilia)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCondominio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtApto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
+            this.txtIdade = new System.Windows.Forms.NumericUpDown();
+            this.txtApto = new System.Windows.Forms.NumericUpDown();
+            this.txtCondominio = new System.Windows.Forms.NumericUpDown();
+            this.txtFamilia = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbTitulo = new System.Windows.Forms.Label();
+            this.btnSubmit = new System.Windows.Forms.Button();
+            this.lbIdade = new System.Windows.Forms.Label();
+            this.lbApto = new System.Windows.Forms.Label();
+            this.txtBairro = new System.Windows.Forms.TextBox();
+            this.lbBairro = new System.Windows.Forms.Label();
+            this.lbNome = new System.Windows.Forms.Label();
+            this.lbID = new System.Windows.Forms.Label();
+            this.txtNome = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtApto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCondominio)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFamilia)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNome
+            // txtID
             // 
-            this.txtNome.Location = new System.Drawing.Point(68, 95);
-            this.txtNome.Multiline = true;
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(323, 20);
-            this.txtNome.TabIndex = 1;
+            this.txtID.Location = new System.Drawing.Point(65, 50);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(103, 20);
+            this.txtID.TabIndex = 36;
             // 
-            // lbID
+            // txtIdade
             // 
-            this.lbID.AutoSize = true;
-            this.lbID.Location = new System.Drawing.Point(12, 56);
-            this.lbID.Name = "lbID";
-            this.lbID.Size = new System.Drawing.Size(21, 13);
-            this.lbID.TabIndex = 3;
-            this.lbID.Text = "ID:";
+            this.txtIdade.Location = new System.Drawing.Point(65, 228);
+            this.txtIdade.Name = "txtIdade";
+            this.txtIdade.Size = new System.Drawing.Size(103, 20);
+            this.txtIdade.TabIndex = 35;
             // 
-            // lbNome
+            // txtApto
             // 
-            this.lbNome.AutoSize = true;
-            this.lbNome.Location = new System.Drawing.Point(12, 95);
-            this.lbNome.Name = "lbNome";
-            this.lbNome.Size = new System.Drawing.Size(42, 13);
-            this.lbNome.TabIndex = 4;
-            this.lbNome.Text = "NOME:";
+            this.txtApto.Location = new System.Drawing.Point(65, 180);
+            this.txtApto.Name = "txtApto";
+            this.txtApto.Size = new System.Drawing.Size(103, 20);
+            this.txtApto.TabIndex = 34;
             // 
-            // lbBairro
+            // txtCondominio
             // 
-            this.lbBairro.AutoSize = true;
-            this.lbBairro.Location = new System.Drawing.Point(9, 140);
-            this.lbBairro.Name = "lbBairro";
-            this.lbBairro.Size = new System.Drawing.Size(51, 13);
-            this.lbBairro.TabIndex = 5;
-            this.lbBairro.Text = "BAIRRO:";
+            this.txtCondominio.Location = new System.Drawing.Point(287, 224);
+            this.txtCondominio.Name = "txtCondominio";
+            this.txtCondominio.Size = new System.Drawing.Size(103, 20);
+            this.txtCondominio.TabIndex = 33;
             // 
-            // txtBairro
+            // txtFamilia
             // 
-            this.txtBairro.Location = new System.Drawing.Point(68, 140);
-            this.txtBairro.Multiline = true;
-            this.txtBairro.Name = "txtBairro";
-            this.txtBairro.Size = new System.Drawing.Size(323, 20);
-            this.txtBairro.TabIndex = 6;
+            this.txtFamilia.Location = new System.Drawing.Point(287, 180);
+            this.txtFamilia.Name = "txtFamilia";
+            this.txtFamilia.Size = new System.Drawing.Size(103, 20);
+            this.txtFamilia.TabIndex = 32;
             // 
-            // lbApto
+            // label2
             // 
-            this.lbApto.AutoSize = true;
-            this.lbApto.Location = new System.Drawing.Point(15, 188);
-            this.lbApto.Name = "lbApto";
-            this.lbApto.Size = new System.Drawing.Size(39, 13);
-            this.lbApto.TabIndex = 8;
-            this.lbApto.Text = "APTO:";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(193, 224);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(88, 13);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "idCONDOMINIO:";
             // 
-            // lbIdade
+            // label1
             // 
-            this.lbIdade.AutoSize = true;
-            this.lbIdade.Location = new System.Drawing.Point(12, 234);
-            this.lbIdade.Name = "lbIdade";
-            this.lbIdade.Size = new System.Drawing.Size(43, 13);
-            this.lbIdade.TabIndex = 9;
-            this.lbIdade.Text = "IDADE:";
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.BackColor = System.Drawing.Color.LightBlue;
-            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmit.Location = new System.Drawing.Point(152, 279);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(121, 32);
-            this.btnSubmit.TabIndex = 10;
-            this.btnSubmit.Text = "SUBMIT";
-            this.btnSubmit.UseVisualStyleBackColor = false;
-            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(222, 182);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "idFAMILIA:";
             // 
             // lbTitulo
             // 
             this.lbTitulo.AutoSize = true;
             this.lbTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitulo.Location = new System.Drawing.Point(63, 15);
+            this.lbTitulo.Location = new System.Drawing.Point(60, 9);
             this.lbTitulo.Name = "lbTitulo";
             this.lbTitulo.Size = new System.Drawing.Size(106, 29);
-            this.lbTitulo.TabIndex = 11;
+            this.lbTitulo.TabIndex = 29;
             this.lbTitulo.Text = "TITULO";
             // 
-            // label1
+            // btnSubmit
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(225, 188);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "idFAMILIA:";
+            this.btnSubmit.BackColor = System.Drawing.Color.LightBlue;
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmit.Location = new System.Drawing.Point(149, 273);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(121, 32);
+            this.btnSubmit.TabIndex = 28;
+            this.btnSubmit.Text = "SUBMIT";
+            this.btnSubmit.UseVisualStyleBackColor = false;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // label2
+            // lbIdade
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(196, 230);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 13);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "idCONDOMINIO:";
+            this.lbIdade.AutoSize = true;
+            this.lbIdade.Location = new System.Drawing.Point(9, 228);
+            this.lbIdade.Name = "lbIdade";
+            this.lbIdade.Size = new System.Drawing.Size(43, 13);
+            this.lbIdade.TabIndex = 27;
+            this.lbIdade.Text = "IDADE:";
             // 
-            // txtFamilia
+            // lbApto
             // 
-            this.txtFamilia.Location = new System.Drawing.Point(290, 186);
-            this.txtFamilia.Name = "txtFamilia";
-            this.txtFamilia.Size = new System.Drawing.Size(103, 20);
-            this.txtFamilia.TabIndex = 16;
+            this.lbApto.AutoSize = true;
+            this.lbApto.Location = new System.Drawing.Point(12, 182);
+            this.lbApto.Name = "lbApto";
+            this.lbApto.Size = new System.Drawing.Size(39, 13);
+            this.lbApto.TabIndex = 26;
+            this.lbApto.Text = "APTO:";
             // 
-            // txtCondominio
+            // txtBairro
             // 
-            this.txtCondominio.Location = new System.Drawing.Point(290, 230);
-            this.txtCondominio.Name = "txtCondominio";
-            this.txtCondominio.Size = new System.Drawing.Size(103, 20);
-            this.txtCondominio.TabIndex = 17;
+            this.txtBairro.Location = new System.Drawing.Point(65, 134);
+            this.txtBairro.Multiline = true;
+            this.txtBairro.Name = "txtBairro";
+            this.txtBairro.Size = new System.Drawing.Size(323, 20);
+            this.txtBairro.TabIndex = 25;
             // 
-            // txtApto
+            // lbBairro
             // 
-            this.txtApto.Location = new System.Drawing.Point(68, 186);
-            this.txtApto.Name = "txtApto";
-            this.txtApto.Size = new System.Drawing.Size(103, 20);
-            this.txtApto.TabIndex = 18;
+            this.lbBairro.AutoSize = true;
+            this.lbBairro.Location = new System.Drawing.Point(6, 134);
+            this.lbBairro.Name = "lbBairro";
+            this.lbBairro.Size = new System.Drawing.Size(51, 13);
+            this.lbBairro.TabIndex = 24;
+            this.lbBairro.Text = "BAIRRO:";
             // 
-            // txtIdade
+            // lbNome
             // 
-            this.txtIdade.Location = new System.Drawing.Point(68, 234);
-            this.txtIdade.Name = "txtIdade";
-            this.txtIdade.Size = new System.Drawing.Size(103, 20);
-            this.txtIdade.TabIndex = 19;
+            this.lbNome.AutoSize = true;
+            this.lbNome.Location = new System.Drawing.Point(9, 89);
+            this.lbNome.Name = "lbNome";
+            this.lbNome.Size = new System.Drawing.Size(42, 13);
+            this.lbNome.TabIndex = 23;
+            this.lbNome.Text = "NOME:";
             // 
-            // txtID
+            // lbID
             // 
-            this.txtID.Location = new System.Drawing.Point(68, 56);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(103, 20);
-            this.txtID.TabIndex = 20;
+            this.lbID.AutoSize = true;
+            this.lbID.Location = new System.Drawing.Point(9, 50);
+            this.lbID.Name = "lbID";
+            this.lbID.Size = new System.Drawing.Size(21, 13);
+            this.lbID.TabIndex = 22;
+            this.lbID.Text = "ID:";
+            // 
+            // txtNome
+            // 
+            this.txtNome.Location = new System.Drawing.Point(65, 89);
+            this.txtNome.Multiline = true;
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(323, 20);
+            this.txtNome.TabIndex = 21;
             // 
             // CadastroDados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(419, 323);
+            this.ClientSize = new System.Drawing.Size(409, 318);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.txtIdade);
             this.Controls.Add(this.txtApto);
@@ -211,38 +210,38 @@ namespace NextSoftAppWinForms
             this.Controls.Add(this.lbID);
             this.Controls.Add(this.txtNome);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "CadastroDados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "NextSoft - Cadastro e Alteracao de Dados";
+            this.Text = "NextSoft - Cadastro e alteração de dados";
             this.Load += new System.EventHandler(this.CadastroDados_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtFamilia)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtCondominio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtApto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtIdade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtApto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtCondominio)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtFamilia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.Label lbID;
-        private System.Windows.Forms.Label lbNome;
-        private System.Windows.Forms.Label lbBairro;
-        private System.Windows.Forms.TextBox txtBairro;
-        private System.Windows.Forms.Label lbApto;
-        private System.Windows.Forms.Label lbIdade;
-        private System.Windows.Forms.Button btnSubmit;
-        public System.Windows.Forms.Label lbTitulo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown txtFamilia;
-        private System.Windows.Forms.NumericUpDown txtCondominio;
-        private System.Windows.Forms.NumericUpDown txtApto;
-        private System.Windows.Forms.NumericUpDown txtIdade;
+
         private System.Windows.Forms.NumericUpDown txtID;
+        private System.Windows.Forms.NumericUpDown txtIdade;
+        private System.Windows.Forms.NumericUpDown txtApto;
+        private System.Windows.Forms.NumericUpDown txtCondominio;
+        private System.Windows.Forms.NumericUpDown txtFamilia;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label lbTitulo;
+        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Label lbIdade;
+        private System.Windows.Forms.Label lbApto;
+        private System.Windows.Forms.TextBox txtBairro;
+        private System.Windows.Forms.Label lbBairro;
+        private System.Windows.Forms.Label lbNome;
+        private System.Windows.Forms.Label lbID;
+        private System.Windows.Forms.TextBox txtNome;
     }
 }
